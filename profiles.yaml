@@ -1,0 +1,7 @@
+projet_olist:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: dev_database.duckdb 
+      schema: main

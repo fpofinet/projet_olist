@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: stg_order_data
+    description: "Nettoyage et typage des commandes"
