@@ -1,5 +1,14 @@
 version: 2
 
 models:
-  - name: stg_order_data
-    description: "Nettoyage et typage des commandes"
+  - name: stg_order_items_dataset
+    description: "dataset des details de chaque commande"
+
+  - name: stg_order_payments_dataset
+    description: "dataset des paiements de chaque commande"
+
+  - name: stg_order_reviews_dataset
+    description: "dataset des avis client de chaque commande"
+
+  - name: stg_orders_dataset
+    description: "dataset contenant les commandes"

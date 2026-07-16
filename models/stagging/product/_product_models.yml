@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: stg_products_dataset
+    description: "dataset des produits disponible"
+
+  - name: stg_product_category_name_trans
+    description: "dataset contenant les traductions en anglais des categories"

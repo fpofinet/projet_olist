@@ -1,5 +1,5 @@
 version: 2
 
 models:
-  - name: stg_seller_data
+  - name: stg_sellers_dataset
     description: "Nettoyage et typage des vendeurs"

@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: stg_customers_dataset
+    description: "dataset contenant tout les clients de la plateforme"
+
