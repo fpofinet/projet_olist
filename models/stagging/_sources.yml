@@ -6,7 +6,6 @@ sources:
     meta:
       external_location: "data/{name}.csv"
     
-    # Tu as juste besoin de donner le nom des fichiers (sans le .csv)
     tables:
       - name: olist_customers_dataset
       - name: olist_orders_dataset
