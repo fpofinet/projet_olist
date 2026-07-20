@@ -6,10 +6,10 @@ FROM read_csv_auto('data/olist_sellers_dataset.csv');
 
 -- on fait une description de notre dataset 
 DESCRIBE 'data/olist_sellers_dataset.csv';
--- on affiche une partie du dataset 
--- SELECT *
--- FROM read_csv_auto('data/olist_sellers_dataset.csv')
--- LIMIT 20;
+--on affiche une partie du dataset 
+SELECT *
+FROM read_csv_auto('data/olist_sellers_dataset.csv')
+LIMIT 20;
 -- -- on affiche les vendeurs par ville
 -- SELECT COUNT(*) total_par_state,  seller_state  
 -- FROM read_csv_auto('data/olist_sellers_dataset.csv')

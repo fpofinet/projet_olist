@@ -21,8 +21,22 @@ DESCRIBE 'data/olist_orders_dataset.csv';
 -- FROM read_csv_auto('data/olist_order_items_dataset.csv');
 
 --- on fait une description du dataset des produits de la commande
--- DESCRIBE 'data/olist_order_items_dataset.csv';
+
+DESCRIBE 'data/olist_order_items_dataset.csv';
 -- -- on affiche une petite partie des donnees
+-- SELECT *
+-- FROM  read_csv_auto('data/olist_order_items_dataset.csv')
+-- LIMIT 20;
+----------------------
+SELECT DISTINCT seller_id , order_id, COUNT (*) as tt
+FROM  read_csv_auto('data/olist_order_items_dataset.csv')
+GROUP BY order_id, seller_id
+ORDER BY tt DESC;
+-----------------------------------------------------------------------------
+SELECT DISTINCT order_id,seller_id
+FROM  read_csv_auto('data/olist_order_items_dataset.csv');
+
+-----------------------------------------------------------------
 -- SELECT order_id, COUNT(*), SUM(price), seller_id
 -- FROM  read_csv_auto('data/olist_order_items_dataset.csv')
 -- GROUP BY order_id, seller_id

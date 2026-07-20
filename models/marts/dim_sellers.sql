@@ -2,25 +2,20 @@ WITH sellers AS(
     SELECT seller_id,seller_city,seller_state
     FROM {{ ref('stg_sellers_dataset') }}
 ),
-order_reviews AS (
-    SELECT review_id,order_id,review_score
-    FROM {{ ref('stg_order_reviews_dataset') }}
-),
-orders AS (
+total_by_seller AS(
     SELECT *
-    FROM {{ ref('int_orders_with_items') }}
+    FROM {{ ref('int_order_aggregated_by_seller') }}
 ),
-orders_with_review AS (
-    SELECT o.order_id, o.seller_id, o.total_items, o.total_price, o.order_status, r.review_score
-    FROM orders AS o, order_reviews AS r
-    WHERE o.order_id = r.order_id
+avg_review_score_by AS (
+    SELECT seller_id,AVG(review_score) AS r_score
+    FROM {{ ref('int_order_with_review_score') }}
+    GROUP BY seller_id
 ),
 final AS (
-    SELECT s.seller_id,SUM(total_items) as total_selled, SUM(total_price) AS total_ca,AVG(review_score) AS mean_review_score,seller_city,seller_state
-    FROM sellers AS s, orders_with_review AS o
-    WHERE o.seller_id = s.seller_id
-    GROUP BY s.seller_id , seller_city,seller_state
+    SELECT s.seller_id,s.seller_city,s.seller_state,t.total_revenue,t.total_product,r.r_score
+    FROM sellers AS s, total_by_seller AS t, avg_review_score_by AS r
+    WHERE s.seller_id = t.seller_id AND t.seller_id = r.seller_id
 )
 
-SELECT * 
+SELECT * REPLACE (ROUND(total_revenue,2) AS total_revenue , ROUND(r_score,2) AS average_score)
 FROM final
