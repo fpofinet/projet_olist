@@ -17,5 +17,8 @@ final AS (
     WHERE s.seller_id = t.seller_id AND t.seller_id = r.seller_id
 )
 
-SELECT * REPLACE (ROUND(total_revenue,2) AS total_revenue , ROUND(r_score,2) AS average_score)
+SELECT * REPLACE (
+    ROUND(total_revenue, 2) AS total_revenue, 
+    ROUND(r_score, 2) AS r_score
+)
 FROM final
