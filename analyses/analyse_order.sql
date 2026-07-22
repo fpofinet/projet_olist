@@ -5,7 +5,7 @@
 -- FROM read_csv_auto('data/olist_orders_dataset.csv');
 
 -- on fait une description de notre dataset 
-DESCRIBE 'data/olist_orders_dataset.csv';
+ DESCRIBE 'data/olist_orders_dataset.csv';
 -- -- On compte les commandes qui ont une date de livraison effective superieur a la date estime 
 -- SELECT COUNT(*)
 -- FROM read_csv_auto('data/olist_orders_dataset.csv')
@@ -15,7 +15,7 @@ DESCRIBE 'data/olist_orders_dataset.csv';
 -- SELECT *
 -- FROM  read_csv_auto('data/olist_orders_dataset.csv')
 -- LIMIT 20;
--- SUMMARIZE 'data/olist_orders_dataset.csv';
+SUMMARIZE 'data/olist_orders_dataset.csv';
 
 -- SELECT count(*)
 -- FROM read_csv_auto('data/olist_order_items_dataset.csv');
@@ -28,13 +28,13 @@ DESCRIBE 'data/olist_order_items_dataset.csv';
 -- FROM  read_csv_auto('data/olist_order_items_dataset.csv')
 -- LIMIT 20;
 ----------------------
-SELECT DISTINCT seller_id , order_id, COUNT (*) as tt
-FROM  read_csv_auto('data/olist_order_items_dataset.csv')
-GROUP BY order_id, seller_id
-ORDER BY tt DESC;
+-- SELECT DISTINCT seller_id , order_id, COUNT (*) as tt
+-- FROM  read_csv_auto('data/olist_order_items_dataset.csv')
+-- GROUP BY order_id, seller_id
+-- ORDER BY tt DESC;
 -----------------------------------------------------------------------------
-SELECT DISTINCT order_id,seller_id
-FROM  read_csv_auto('data/olist_order_items_dataset.csv');
+-- SELECT DISTINCT order_id,seller_id
+-- FROM  read_csv_auto('data/olist_order_items_dataset.csv');
 
 -----------------------------------------------------------------
 -- SELECT order_id, COUNT(*), SUM(price), seller_id
@@ -47,7 +47,7 @@ FROM  read_csv_auto('data/olist_order_items_dataset.csv');
 -- SELECT count(*)
 -- FROM read_csv_auto('data/olist_order_reviews_dataset.csv');
 -- --- on fait une description du dataset order reviews
-DESCRIBE 'data/olist_order_reviews_dataset.csv';
+-- DESCRIBE 'data/olist_order_reviews_dataset.csv';
 -- -- on affiche une petite partie des donnees
 -- SELECT *
 -- FROM  read_csv_auto('data/olist_order_reviews_dataset.csv')
@@ -62,11 +62,23 @@ DESCRIBE 'data/olist_order_reviews_dataset.csv';
 -- SELECT count(*)
 -- FROM read_csv_auto('data/olist_order_payments_dataset.csv');
 -- --- on fait une description du dataset
--- DESCRIBE 'data/olist_order_payments_dataset.csv';
+DESCRIBE 'data/olist_order_payments_dataset.csv';
 -- -- -- on affiche une petite partie des donnees 
--- -- SELECT *
--- -- FROM  read_csv_auto('data/olist_order_payments_dataset.csv')
--- -- LIMIT 20;
+SELECT *
+FROM  read_csv_auto('data/olist_order_payments_dataset.csv')
+LIMIT 20;
+----------------------------------------------------------------------
+-- SELECT order_id,count(payment_sequential)
+-- FROM read_csv_auto('data/olist_order_payments_dataset.csv')
+-- GROUP BY order_id
+-- ORDER BY count(payment_sequential) DESC;
+
+
+------------------
+SELECT *
+FROM  read_csv_auto('data/olist_order_payments_dataset.csv')
+WHERE order_id = 'fedcd9f7ccdc8cba3a18defedd1a5547'
+ORDER BY payment_sequential;
 
 -- -- --- on affiche quelques statistique de notre dataset
 -- SUMMARIZE 'data/olist_order_payments_dataset.csv';

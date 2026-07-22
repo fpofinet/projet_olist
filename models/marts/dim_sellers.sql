@@ -4,11 +4,11 @@ WITH sellers AS(
 ),
 total_by_seller AS(
     SELECT *
-    FROM {{ ref('int_order_aggregated_by_seller') }}
+    FROM {{ ref('int_order__aggregated_by_seller') }}
 ),
 avg_review_score_by AS (
     SELECT seller_id,AVG(review_score) AS r_score
-    FROM {{ ref('int_order_with_review_score') }}
+    FROM {{ ref('int_order__with_review_score') }}
     GROUP BY seller_id
 ),
 final AS (
