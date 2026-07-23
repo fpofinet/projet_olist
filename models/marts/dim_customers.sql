@@ -20,7 +20,7 @@ final_data AS (
         MAX(o.order_purchase_timestamp) AS max_order_date,
         Min(o.order_purchase_timestamp) AS min_order_date,
         COUNT(p.order_id) AS customer_total_orders,
-        ROUND(ANY_VALUE(p.total_payment),2) AS customer_total_payment
+        ROUND(SUM(p.total_payment),2) AS customer_total_payment
     FROM 
         customers AS c, 
         order_dates AS o,
