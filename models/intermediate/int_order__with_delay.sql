@@ -8,6 +8,7 @@ WITH orders  AS (
 ), 
 final_data AS (
     SELECT order_id,order_status, 
+        order_purchase_timestamp AS order_date,
         DATE_DIFF('day', order_purchase_timestamp,order_delivered_customer_date) AS livraison_delay,
         CASE
             WHEN order_delivered_customer_date <= order_estimated_delivery_date

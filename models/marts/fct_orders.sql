@@ -1,11 +1,11 @@
 WITH order_dates AS(
     SELECT *
-    FROM {{ ref('int_order__joined_with_delay') }}
+    FROM {{ ref('int_order__with_delay') }}
 ),
 
 order_payment AS(
     SELECT *
-    FROM {{ ref('int_order__aggregated_with_customer_payment') }}
+    FROM {{ ref('int_order__aggregated_by_payment') }}
 ),
 order_items_and_freight_value AS(
     SELECT *

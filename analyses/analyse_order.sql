@@ -63,10 +63,10 @@ DESCRIBE 'data/olist_order_items_dataset.csv';
 -- FROM read_csv_auto('data/olist_order_payments_dataset.csv');
 -- --- on fait une description du dataset
 DESCRIBE 'data/olist_order_payments_dataset.csv';
--- -- -- on affiche une petite partie des donnees 
-SELECT *
-FROM  read_csv_auto('data/olist_order_payments_dataset.csv')
-LIMIT 20;
+-- -- -- -- on affiche une petite partie des donnees 
+-- SELECT *
+-- FROM  read_csv_auto('data/olist_order_payments_dataset.csv')
+-- LIMIT 20;
 ----------------------------------------------------------------------
 -- SELECT order_id,count(payment_sequential)
 -- FROM read_csv_auto('data/olist_order_payments_dataset.csv')
